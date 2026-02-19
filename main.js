@@ -1,13 +1,32 @@
-
 const generateBtn = document.getElementById('generate');
 const numberElements = document.querySelectorAll('.number');
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
 
+// Theme Toggle Logic
+const toggleTheme = () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+};
+
+// Initialize Theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeBtn.textContent = 'Light Mode';
+}
+
+themeBtn.addEventListener('click', toggleTheme);
+
+// Lotto Logic
 const generateNumbers = () => {
     const numbers = new Set();
     while (numbers.size < 6) {
         numbers.add(Math.floor(Math.random() * 45) + 1);
     }
-    return Array.from(numbers);
+    return Array.from(numbers).sort((a, b) => a - b);
 };
 
 const getColor = (number) => {
