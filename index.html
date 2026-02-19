@@ -1,27 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>AI Classifier & Lotto</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Teachable Machine Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 </head>
 <body>
     <div class="theme-toggle">
         <button id="theme-btn">Dark Mode</button>
     </div>
     <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="numbers">
-            <span class="number"></span>
-            <span class="number"></span>
-            <span class="number"></span>
-            <span class="number"></span>
-            <span class="number"></span>
-            <span class="number"></span>
-        </div>
-        <button id="generate">Generate Numbers</button>
+        <!-- New Classifier Section -->
+        <section class="classifier-section">
+            <h1>Cat vs Ma Dong-seok</h1>
+            <p>Upload a photo to see if it's a Cat or Ma Dong-seok!</p>
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="image-upload" accept="image/*" hidden>
+                <label for="image-upload" class="upload-label">
+                    <span id="upload-text">Click or Drag Image Here</span>
+                    <img id="preview-image" src="" alt="Preview" style="display: none; max-width: 100%; border-radius: 10px;">
+                </label>
+            </div>
+            <div id="result-container" style="display: none; margin-top: 20px;">
+                <h2 id="prediction-text">Analyzing...</h2>
+                <div class="bar-container">
+                    <div id="label-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Lotto Section -->
+        <section class="lotto-section">
+            <h1>Lotto Number Generator</h1>
+            <div class="numbers">
+                <span class="number"></span>
+                <span class="number"></span>
+                <span class="number"></span>
+                <span class="number"></span>
+                <span class="number"></span>
+                <span class="number"></span>
+            </div>
+            <button id="generate">Generate Numbers</button>
+        </section>
 
         <div class="contact-section">
             <hr>
@@ -54,4 +80,3 @@
     <script src="main.js"></script>
 </body>
 </html>
-
