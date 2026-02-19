@@ -163,6 +163,18 @@ body.dark-mode #submit-btn {
     opacity: 0.9;
 }
 
+.comments-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.comments-section hr {
+    border: 0;
+    border-top: 1px solid var(--number-bg);
+    margin-bottom: 30px;
+}
+
 .number.animate {
     animation: pop 0.5s ease-in-out;
 }
